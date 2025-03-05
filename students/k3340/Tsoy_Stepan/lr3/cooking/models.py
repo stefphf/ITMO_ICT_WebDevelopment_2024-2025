@@ -14,7 +14,7 @@ class Meal(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     headline = models.CharField(max_length=512)
-    banner = models.URLField()
+    banner = models.URLField(max_length=1024)
     ingredients = models.JSONField()  # str[]
     video = models.URLField()
 
@@ -38,6 +38,7 @@ class Step(models.Model):
         return f'{self.meal.title}: {self.step_number}'
 
     def save(self, *args, **kwargs):
+        # TODO
         last_step = Step.objects.filter(meal=self.meal).order_by('-step_number').first()
         self.step_number = (last_step.step_number + 1) if last_step else 1
         super().save(*args, **kwargs)

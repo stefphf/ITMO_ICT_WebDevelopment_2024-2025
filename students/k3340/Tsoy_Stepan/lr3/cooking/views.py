@@ -13,7 +13,7 @@ from cooking.serializers import MealListSerializer, MealCreateSerializer, MealDe
 
 
 class CustomMealPagination(PageNumberPagination):
-    page_size = 5
+    page_size = 6
     page_size_query_param = 'page_size'
     max_page_size = 100
 
@@ -145,3 +145,9 @@ class MyLikesView(ListAPIView):
 
     def get_queryset(self):
         return Like.objects.filter(user=self.request.user, status=True)
+
+
+class can_edit(APIView):
+    def get(self, request, pk, *args, **kwargs):
+        recipe = get_object_or_404(Meal, pk=pk)
+        return Response(recipe.author == request.user or request.user.is_superuser, 200)

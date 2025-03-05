@@ -10,6 +10,7 @@ urlpatterns = [
     path('recipes/<int:pk>/steps/', StepListCreateAPIView.as_view(), name='meal-step-list'),
     path('recipes/<int:pk>/comments/', CommentListCreateAPIView.as_view(), name='meal-comments-list'),
     path('recipes/<int:pk>/like/', LikeView.as_view(), name='meal-like'),
+    path('recipes/<int:pk>/can_edit/', can_edit.as_view(), name='can-edit'),
 
     path('account/', AccountView.as_view(), name='account'),
     path('account/posts/', MyRecipesView.as_view(), name='account-recipes'),

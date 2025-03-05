@@ -14,7 +14,7 @@ class UserSerializer(ModelSerializer):
 
 class MealListSerializer(ModelSerializer):
     author = UserSerializer(read_only=True)
-    difficulty = serializers.ChoiceField(choices=Meal.DIFFICULTY_CHOICES)
+    difficulty = serializers.SerializerMethodField()
 
     class Meta:
         model = Meal
@@ -26,6 +26,9 @@ class MealListSerializer(ModelSerializer):
             'banner',
             'difficulty'
         ]
+
+    def get_difficulty(self, obj):
+        return obj.get_difficulty_display()
 
 
 class MealDetailSerializer(ModelSerializer):
@@ -76,14 +79,8 @@ class CommentSerializer(ModelSerializer):
 
 
 class LikeSerializer(ModelSerializer):
-    meal = SerializerMethodField()
+    meal = MealListSerializer()
 
     class Meta:
         model = Like
         fields = ['meal', 'status']
-
-    def get_meal(self, obj):
-        return {
-            "id": obj.meal.id,
-            "title": obj.meal.title
-        }
