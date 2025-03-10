@@ -84,12 +84,151 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#no3" class="nav-link">Отчет по Лабораторной работе №3</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">Сервис для обмена рецептами и кулинарных блогов</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">Основные эндпоинты</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">Эндпоинты блюд</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_7" class="nav-link">Эндпоинты шагов приготовления</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_9" class="nav-link">Эндпоинты комментариев</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_11" class="nav-link">Эндпоинты лайков</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_13" class="nav-link">Личный кабинет</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#djoser" class="nav-link">Аутентификация (Djoser)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_18" class="nav-link">Разграничение доступа</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_19" class="nav-link">Пагинация</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_20" class="nav-link">Запуск</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-</div>
+<h1 id="no3">Отчет по Лабораторной работе №3</h1>
+<h2 id="_1">Сервис для обмена рецептами и кулинарных блогов</h2>
+<p>Необходимо реализовать:</p>
+<ul>
+<li>Вход</li>
+<li>Регистрация</li>
+<li>Личный кабинет пользователя (сохраненные рецепты, публикации)</li>
+<li>Поиск рецептов с фильтрацией по типу блюда, сложности, ингредиентам</li>
+<li>Страница рецепта с фото, пошаговыми инструкциями и видео</li>
+<li>Социальные функции (комментарии, лайки, подписки на кулинаров)</li>
+</ul>
+<hr />
+<h2 id="_2">Основные эндпоинты</h2>
+<h3 id="_3">Главная страница</h3>
+<p><strong>GET /</strong><br />
+Возвращает приветственное сообщение и информацию об авторизации пользователя.</p>
+<hr />
+<h2 id="_4">Эндпоинты блюд</h2>
+<h3 id="_5">Список и создание блюд</h3>
+<p><strong>GET /recipes/</strong> – получить список блюд<br />
+<strong>POST /recipes/</strong> – создать новое блюдо</p>
+<p><strong>Параметры:</strong></p>
+<ul>
+<li><code>title</code> (строка) – название</li>
+<li><code>headline</code> (строка) – краткое описание</li>
+<li><code>banner</code> (URL) – изображение</li>
+<li><code>ingredients</code> (массив строк) – список ингредиентов</li>
+<li><code>video</code> (URL) – ссылка на видео</li>
+<li><code>difficulty</code> (значения: <code>ez</code>, <code>md</code>, <code>hd</code>) – уровень сложности</li>
+</ul>
+<h3 id="_6">Детальная информация о блюде</h3>
+<p><strong>GET /recipes/{id}/</strong> – получить данные блюда<br />
+<strong>PUT /recipes/{id}/</strong> – редактировать блюдо<br />
+<strong>DELETE /recipes/{id}/</strong> – удалить блюдо</p>
+<hr />
+<h2 id="_7">Эндпоинты шагов приготовления</h2>
+<h3 id="_8">Список и добавление шагов</h3>
+<p><strong>GET /recipes/{id}/steps/</strong> – получить шаги приготовления<br />
+<strong>POST /recipes/{id}/steps/</strong> – добавить новый шаг</p>
+<p><strong>Параметры:</strong></p>
+<ul>
+<li><code>step_description</code> (строка) – описание шага</li>
+<li><code>attachment</code> (URL, опционально) – вложение (изображение или видео)</li>
+</ul>
+<hr />
+<h2 id="_9">Эндпоинты комментариев</h2>
+<h3 id="_10">Список и добавление комментариев</h3>
+<p><strong>GET /recipes/{id}/comments/</strong> – получить список комментариев<br />
+<strong>POST /recipes/{id}/comments/</strong> – добавить комментарий</p>
+<p><strong>Параметры:</strong></p>
+<ul>
+<li><code>text</code> (строка) – текст комментария</li>
+<li><code>rating</code> (число 1-10) – оценка</li>
+</ul>
+<hr />
+<h2 id="_11">Эндпоинты лайков</h2>
+<h3 id="_12">Лайкнуть/убрать лайк у блюда</h3>
+<p><strong>GET /recipes/{id}/like/</strong> – получить статус лайка<br />
+<strong>POST /recipes/{id}/like/</strong> – переключить статус лайка</p>
+<hr />
+<h2 id="_13">Личный кабинет</h2>
+<h3 id="_14">Данные пользователя</h3>
+<p><strong>GET /account/</strong> – получить информацию о текущем пользователе</p>
+<h3 id="_15">Список добавленных блюд</h3>
+<p><strong>GET /account/posts/</strong> – список рецептов пользователя</p>
+<h3 id="_16">Список комментариев</h3>
+<p><strong>GET /account/comments/</strong> – комментарии пользователя</p>
+<h3 id="_17">Список лайков</h3>
+<p><strong>GET /account/likes/</strong> – список понравившихся блюд</p>
+<hr />
+<h2 id="djoser">Аутентификация (Djoser)</h2>
+<ul>
+<li><strong>POST /auth/token/login/</strong> – вход</li>
+<li><strong>POST /auth/token/logout/</strong> – выход</li>
+</ul>
+<hr />
+<h2 id="_18">Разграничение доступа</h2>
+<ul>
+<li><strong>Авторизованные пользователи</strong> – могут добавлять блюда, комментарии и лайки</li>
+<li><strong>Авторы блюд</strong> – могут редактировать/удалять свои блюда</li>
+<li><strong>Администраторы</strong> – полный доступ</li>
+</ul>
+<hr />
+<h2 id="_19">Пагинация</h2>
+<ul>
+<li>По умолчанию: 6 рецептов на страницу</li>
+<li>Можно изменить: <code>?page_size=X</code> (максимум 100)</li>
+</ul>
+<h2 id="_20">Запуск</h2>
+<pre><code>python manage.py runserver
+</code></pre></div>
             </div>
         </div>
 
