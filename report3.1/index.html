@@ -94,6 +94,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">Задание 2. Фильтрация данных</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-bs-level="2"><a href="#3" class="nav-link">Задание 3. Агрегация и аннотация</a>
               <ul class="nav flex-column">
               </ul>
@@ -136,7 +140,7 @@ ownership4 = Ownership.objects.create(user=user3, car=car4, start_date=&quot;201
 ownership5 = Ownership.objects.create(user=user4, car=car5, start_date=&quot;2022-02-18&quot;)
 ownership6 = Ownership.objects.create(user=user5, car=car1, start_date=&quot;2023-06-25&quot;)
 </code></pre>
-<h3 id="2">Задание 2. Фильтрация данных</h3>
+<h2 id="2">Задание 2. Фильтрация данных</h2>
 <h3 id="toyota">Вывести все машины марки Toyota</h3>
 <pre><code>toyota_cars = Car.objects.filter(brand=&quot;Toyota&quot;)
 for car in toyota_cars:
