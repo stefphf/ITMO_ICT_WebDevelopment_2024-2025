@@ -107,30 +107,28 @@
 
 <h1 id="31">Практическая работа 3.1</h1>
 <h2 id="1">Задание 1. Создание объектов</h2>
-<h3 id="_1">Текст задания</h3>
-<p>Напишите запрос на создание 6-7 новых автовладельцев и 5-6 автомобилей, каждому автовладельцу назначьте удостоверение и от 1 до 3 автомобилей. Задание можете выполнить либо в интерактивном режиме интерпретатора, либо в отдельном python-файле. Результатом должны стать запросы и отображение созданных объектов.</p>
-<h3 id="_2">Создание пользователей</h3>
+<h3 id="_1">Создание пользователей</h3>
 <pre><code>user1 = User.objects.create(username=&quot;the_bear&quot;, email=&quot;bear@mail.com&quot;, passport_number=&quot;123456&quot;, address=&quot;7217 Goldner Shoals&quot;, nationality=&quot;American&quot;, first_name=&quot;Jeremy&quot;, last_name=&quot;Allen&quot;, birth_date=&quot;1991-02-17&quot;)
 user2 = User.objects.create(username=&quot;strong&quot;, email=&quot;jeremy@strong.com&quot;, passport_number=&quot;654321&quot;, address=&quot;Apt. 958 45872 Steuber Canyon&quot;, nationality=&quot;American&quot;, first_name=&quot;Jeremy&quot;, last_name=&quot;Strong&quot;, birth_date=&quot;1978-12-25&quot;)
 user3 = User.objects.create(username=&quot;easy_a&quot;, email=&quot;poor@thing.com&quot;, passport_number=&quot;789123&quot;, address=&quot;285 Monnie Freeway&quot;, nationality=&quot;American&quot;, first_name=&quot;Emma&quot;, last_name=&quot;Stone&quot;, birth_date=&quot;1988-11-06&quot;)
 user4 = User.objects.create(username=&quot;evann&quot;, email=&quot;evan@peters.com&quot;, passport_number=&quot;321987&quot;, address=&quot;26519 Walker Isle&quot;, nationality=&quot;American&quot;, first_name=&quot;Evan&quot;, last_name=&quot;Peters&quot;, birth_date=&quot;1987-01-20&quot;)
 user5 = User.objects.create(username=&quot;alright_alright&quot;, email=&quot;matt@mc.com&quot;, passport_number=&quot;852741&quot;, address=&quot;58227 Mills Stream&quot;, nationality=&quot;American&quot;, first_name=&quot;Matthew&quot;, last_name=&quot;Mcconaughey&quot;, birth_date=&quot;1968-10-04&quot;)
 </code></pre>
-<h3 id="_3">Создание машин</h3>
+<h3 id="_2">Создание машин</h3>
 <pre><code>car1 = Car.objects.create(registration_number=&quot;A123BC&quot;, brand=&quot;Toyota&quot;, model=&quot;Camry&quot;, color=&quot;Black&quot;)
 car2 = Car.objects.create(registration_number=&quot;X456YZ&quot;, brand=&quot;BMW&quot;, model=&quot;X5&quot;, color=&quot;White&quot;)
 car3 = Car.objects.create(registration_number=&quot;K789OP&quot;, brand=&quot;Mercedes&quot;, model=&quot;C-Class&quot;, color=&quot;Silver&quot;)
 car4 = Car.objects.create(registration_number=&quot;M321AB&quot;, brand=&quot;Ford&quot;, model=&quot;Focus&quot;, color=&quot;Blue&quot;)
 car5 = Car.objects.create(registration_number=&quot;H852CD&quot;, brand=&quot;Audi&quot;, model=&quot;A6&quot;, color=&quot;Red&quot;)
 </code></pre>
-<h3 id="_4">Создание водительских удостоверений</h3>
+<h3 id="_3">Создание водительских удостоверений</h3>
 <pre><code>license1 = DriverLicense.objects.create(user=user1, license_number=&quot;12345&quot;, license_type=&quot;B&quot;, issue_date=&quot;2015-07-21&quot;)
 license2 = DriverLicense.objects.create(user=user2, license_number=&quot;67890&quot;, license_type=&quot;B&quot;, issue_date=&quot;2018-09-15&quot;)
 license3 = DriverLicense.objects.create(user=user3, license_number=&quot;54321&quot;, license_type=&quot;C&quot;, issue_date=&quot;2016-05-10&quot;)
 license4 = DriverLicense.objects.create(user=user4, license_number=&quot;98765&quot;, license_type=&quot;B&quot;, issue_date=&quot;2019-11-22&quot;)
 license5 = DriverLicense.objects.create(user=user5, license_number=&quot;11111&quot;, license_type=&quot;A&quot;, issue_date=&quot;2014-03-05&quot;)
 </code></pre>
-<h3 id="_5">Привязка машин к владельцам</h3>
+<h3 id="_4">Привязка машин к владельцам</h3>
 <pre><code>ownership1 = Ownership.objects.create(user=user1, car=car1, start_date=&quot;2020-01-10&quot;)
 ownership2 = Ownership.objects.create(user=user1, car=car2, start_date=&quot;2021-05-14&quot;)
 ownership3 = Ownership.objects.create(user=user2, car=car3, start_date=&quot;2019-07-20&quot;)
@@ -139,16 +137,6 @@ ownership5 = Ownership.objects.create(user=user4, car=car5, start_date=&quot;202
 ownership6 = Ownership.objects.create(user=user5, car=car1, start_date=&quot;2023-06-25&quot;)
 </code></pre>
 <h3 id="2">Задание 2. Фильтрация данных</h3>
-<h3 id="_6">Текст задания</h3>
-<p>По созданным в пр.1 данным написать следующие запросы на фильтрацию:</p>
-<ul>
-<li>Где это необходимо, добавьте related_name к полям модели</li>
-<li>Выведете все машины марки “Toyota” (или любой другой марки, которая у вас есть)</li>
-<li>Найти всех водителей с именем “Олег” (или любым другим именем на ваше усмотрение)</li>
-<li>Взяв любого случайного владельца получить его id, и по этому id получить экземпляр удостоверения в виде объекта модели (можно в 2 запроса)</li>
-<li>Вывести всех владельцев красных машин (или любого другого цвета, который у вас присутствует)</li>
-<li>Найти всех владельцев, чей год владения машиной начинается с 2010 (или любой другой год, который присутствует у вас в базе)</li>
-</ul>
 <h3 id="toyota">Вывести все машины марки Toyota</h3>
 <pre><code>toyota_cars = Car.objects.filter(brand=&quot;Toyota&quot;)
 for car in toyota_cars:
@@ -175,7 +163,7 @@ if driver_license:
 <p>Вывод:</p>
 <pre><code>12345 B 2015-07-21
 </code></pre>
-<h3 id="_7">Вывести всех владельцев красных машин</h3>
+<h3 id="_5">Вывести всех владельцев красных машин</h3>
 <pre><code>owners_of_red_cars = User.objects.filter(ownership__car__color=&quot;Red&quot;).distinct()
 for owner in owners_of_red_cars:
     print(f&quot;ID: {owner.id}, Username: {owner.username}&quot;)
@@ -184,16 +172,7 @@ for owner in owners_of_red_cars:
 <pre><code>ID: 4, Username: evann
 </code></pre>
 <h2 id="3">Задание 3. Агрегация и аннотация</h2>
-<h3 id="_8">Текст задания</h3>
-<p>Необходимо реализовать следующие запросы c применением описанных методов:</p>
-<ul>
-<li>Вывод даты выдачи самого старшего водительского удостоверения</li>
-<li>Укажите самую позднюю дату владения машиной, имеющую какую-то из существующих моделей в вашей базе</li>
-<li>Выведите количество машин для каждого водителя</li>
-<li>Подсчитайте количество машин каждой марки</li>
-<li>Отсортируйте всех автовладельцев по дате выдачи удостоверения (Примечание: чтобы не выводить несколько раз одни и те же записи воспользуйтесь методом .distinct())</li>
-</ul>
-<h3 id="_9">Самая ранняя дата выдачи удостоверения</h3>
+<h3 id="_6">Самая ранняя дата выдачи удостоверения</h3>
 <pre><code>from django.db.models import Min
 earliest_license = DriverLicense.objects.aggregate(Min('issue_date'))
 print(&quot;Самая ранняя дата выдачи удостоверения:&quot;, earliest_license['issue_date__min'])
@@ -201,7 +180,7 @@ print(&quot;Самая ранняя дата выдачи удостоверен
 <p>Вывод:</p>
 <pre><code>Самая ранняя дата выдачи удостоверения: 2014-03-05
 </code></pre>
-<h3 id="_10">Самая поздняя дата владения машиной</h3>
+<h3 id="_7">Самая поздняя дата владения машиной</h3>
 <pre><code>from django.db.models import Max
 latest_ownership = Ownership.objects.aggregate(Max('start_date'))
 print(&quot;Самая поздняя дата владения машиной:&quot;, latest_ownership['start_date__max'])
@@ -209,7 +188,7 @@ print(&quot;Самая поздняя дата владения машиной:&
 <p>Вывод:</p>
 <pre><code>Самая поздняя дата владения машиной: 2024-11-04
 </code></pre>
-<h3 id="_11">Количество машин у каждого владельца</h3>
+<h3 id="_8">Количество машин у каждого владельца</h3>
 <pre><code>from django.db.models import Count
 users_with_cars = User.objects.annotate(num_cars=Count('ownership__car')).values('id', 'username', 'num_cars')
 for user in users_with_cars:
@@ -222,7 +201,7 @@ ID: 4, Username: evann, Машин: 1
 ID: 2, Username: strong, Машин: 1
 ID: 1, Username: the_bear, Машин: 2
 </code></pre>
-<h3 id="_12">Отсортировать всех автовладельцев по дате выдачи удостоверения</h3>
+<h3 id="_9">Отсортировать всех автовладельцев по дате выдачи удостоверения</h3>
 <pre><code>sorted_owners = User.objects.filter(driverlicense__isnull=False).order_by('driverlicense__issue_date').distinct()
 for owner in sorted_owners:
     license = owner.driverlicense_set.first()
